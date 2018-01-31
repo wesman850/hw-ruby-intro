@@ -1,6 +1,7 @@
 # When done, submit this entire file to the autograder.
-rando = "hello"
-puts rando.chr
+
+trialPrice = "%0.2f" % 30
+puts trialPrice
 
 # Part 1
 def sum arr
@@ -79,5 +80,33 @@ end
 # Part 3
 
 class BookInStock
+  def initialize(isbn, price)
+    # Instance variables
+    raise ArgumentError, 'ISBN is an empty string' unless !(isbn.empty?)
+    raise ArgumentError, 'Price is less than or equal to zero' unless price > 0
+    @isbn = isbn
+    @price = price
+  end
 
+  def isbn
+    @isbn
+  end
+
+  def isbn=(new_isbn)
+    @isbn = new_isbn
+  end
+
+  def price
+    @price
+  end
+
+  def price=(new_price)
+    @price = new_price
+  end
+
+  def price_as_string
+    # formatPrice = @price
+    formatPrice = "%0.2f" % @price
+    return "$#{formatPrice}"
+  end
 end
